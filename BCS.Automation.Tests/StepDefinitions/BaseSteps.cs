@@ -12,25 +12,13 @@ namespace BCS.Automation.Tests.StepDefinitions
 {
     public class BaseSteps
     {
-        private string screenshotFileName;
-        public string ScreenshotFileName
-        {
-            get
-            {
-                screenshotFileName = Context.TestDeploymentDirectory + "\\" + Context.TestScenario + ".jpeg";
-
-                return screenshotFileName;
-            }
-
-            set { screenshotFileName = value; }
-        }
-
         private static Context context;
+
         public Context Context
         {
             get
             {
-                if (context == null)
+                if(context == null)
                 {
                     context = new Context();
                 }
@@ -39,6 +27,19 @@ namespace BCS.Automation.Tests.StepDefinitions
             set { context = value; }
         }
 
+        private string screenshotFileName;
+
+        public string ScreenshotFileName
+        {
+            get
+            {
+                screenshotFileName = Context.TestDeploymentDirectory + "\\" + Context.TestScenario + ".jpeg";
+
+                return screenshotFileName;
+            }
+            set { screenshotFileName = value; }
+        }
+        
         public void BaseInitialize()
         {
             Environment.CurrentDirectory = TestContext.CurrentContext.TestDirectory;

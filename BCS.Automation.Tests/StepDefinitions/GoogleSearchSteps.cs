@@ -50,7 +50,6 @@ namespace BCS.Automation.Tests.StepDefinitions
         public void ThenIShouldTypeHelloInTheSearchbox(string text)
         {
             homePage.FillUpSearchBox(text);
-            Thread.Sleep(TimeSpan.FromSeconds(5));
         }
 
         [Then(@"I clear the searchbox")]
@@ -86,6 +85,7 @@ namespace BCS.Automation.Tests.StepDefinitions
         [Then(@"I take a screenshot of the page")]
         public void ThenITakeAScreenshotOfThePage()
         {
+            Logger.TakeScreenshot(Context.TestDeploymentDirectory, "testscreenshot");
             Logger.TakeScreenshot(this.ScreenshotFileName);
         }
 

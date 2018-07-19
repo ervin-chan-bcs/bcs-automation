@@ -15,6 +15,15 @@ namespace BCS.Automation.TestFramework
             ((ITakesScreenshot)Browser.WebDriver).GetScreenshot()
                 .SaveAsFile(fileName, ScreenshotImageFormat.Jpeg);
         }
+
+        public static void TakeScreenshot(string filePath, string fileName)
+        {
+            ((ITakesScreenshot)Browser.WebDriver).GetScreenshot()
+                .SaveAsFile(
+                    string.Concat(filePath, "\\", fileName, ".jpeg"), 
+                    ScreenshotImageFormat.Jpeg
+                    );
+        }
         
     }
 }
